@@ -8,6 +8,15 @@ app = Flask(__name__, static_url_path='/static')
 sess = Session()
 
 
+@app.before_request
+def clear_trailing():
+    from flask import redirect, request
+
+    rp = request.path
+    if rp != '/' and rp.endswith('/'):
+        return redirect(rp[:-1])
+
+
 @app.route("/")
 def main():
     return render_template('home/index.html')
@@ -31,6 +40,16 @@ def projects():
 @app.route("/keep")
 def keep():
     return render_template('keep/index.html')
+
+
+@app.route("/ping-me")
+def ping_me():
+    return render_template('ping-me/index.html')
+
+
+@app.route("/ping-me/faqs")
+def ping_me_faqs():
+    return render_template('ping-me/faqs.html')
 
 
 
