@@ -4,6 +4,8 @@ import sys
 from flask import Flask, render_template, redirect, request
 from flask_session import Session
 
+from handlers import depends as depends_handler
+
 app = Flask(__name__, static_url_path='/static')
 sess = Session()
 
@@ -52,6 +54,22 @@ def ping_me_faqs():
     return render_template('ping-me/faqs.html')
 
 
+@app.route("/depends")
+def depends():
+    data = depends_handler.index()
+    return render_template('depends/index.html', data=data)
+
+
+@app.route("/depends/<package>")
+def depends_package(package):
+    analysis_exists, data = depends_handler.package_view(package)
+    return render_template('depends/package.html', data=data, analysis_exists=analysis_exists)
+
+
+@app.route("/depends/<package>/refresh")
+def depends_package_refresh(package):
+    depends_handler.package_refresh(package)
+    return redirect("/depends/" + package)
 
 app.secret_key = os.environ["APP_SECRET_KEY"]
 app.config['SESSION_TYPE'] = 'filesystem'

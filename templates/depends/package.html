@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dependencies of {{ package_name }}</title>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery-2.1.4.min.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css')}}" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script type="text/javascript">
+        var refresh = window.location.href + "/refresh"
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+            $('#bar').hide()
+            $('#status').hide()
+        });
+    </script>
+    <style type="text/css">
+        table {
+            font-weight: 300;
+            line-height: 1.2;
+        }
+    </style>
+
+</head>
+<body>
+
+{% if analysis_exists %}
+    <div class="row">
+        <div class="col s1 offset-s1">
+            <a href="/depends/"><i class="material-icons " style="font-size: 40px; color: black;">home</i></a>
+        </div>
+        <div class="col s2">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-field="builtins">builtins</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for i in data.builtins %}
+                    <tr>
+                        <td>{{ i }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col s2 offset-s2">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-field="nonbuiltins">nonbuiltins</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for i in data.nonbuiltins %}
+                    <tr>
+                        <td>{{ i }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col s2">
+            <a href="#infomodal" class="btn-floating z-depth-0 modal-trigger white"><i class="material-icons tiny" style=" color: black;">help_outline</i></a>
+
+            <div id="infomodal" class="modal">
+                <div class="modal-content">
+                    <h5>Info</h5>
+                    <p>The current result is for {{ data.package_name }}-{{ data.version}}. The file type is .{{ data.file_type }} and the source of the code is {{ data.source }}.</p>
+                    <p>The result is outdated? <a style="cursor: pointer;" onclick="location.href = refresh; $('#bar').show(); $('#status').show();">Click Here</a> to update the results.</p>
+                    <p id="status">Downloading...</p>
+                    <div class="progress" id="bar">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="row">
+        <div class="col s1 offset-s1">
+            <a href="/depends/"><i class="material-icons " style="font-size: 40px; color: black;">home</i></a>
+        </div>
+        <div class="col s10">&nbsp</div>
+        <div class="col s12">&nbsp</div>
+        <div style="font-weight: 300; line-height: 1.5;" id="couldnotfind" class="col s12 offset-s1">Couldn't find data for {{ data.package_name }}. <a target='_blank' href="https://github.com/orkohunter/depends/issues"> Report Issue </a> </div>
+        <br>
+        <div style="font-weight: 300; line-height: 1.5;" id="reason" class="col s12 offset-s1">{{ data.reason }}</div>
+        <script type="text/javascript" src="{{url_for('static', filename='js/js/materialize.min.js')}}"></script>
+        <script type="text/javascript">Materialize.fadeInImage('#couldnotfind')</script>
+        <script type="text/javascript">Materialize.fadeInImage('#reason')</script>
+    </div>
+{% endif %}
+        <script type="text/javascript" src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
+</body>
+</html>
+
+
