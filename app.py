@@ -28,6 +28,11 @@ def projects():
     return render_template('home/projects.html')
 
 
+@app.route("/keep")
+def keep():
+    return render_template('keep/index.html')
+
+
 
 app.secret_key = os.environ["APP_SECRET_KEY"]
 app.config['SESSION_TYPE'] = 'filesystem'
