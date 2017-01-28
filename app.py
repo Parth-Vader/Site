@@ -18,6 +18,11 @@ def clear_trailing():
     if rp != '/' and rp.endswith('/'):
         return redirect(rp[:-1])
 
+    domain = "https://orkohunter.net"
+    url_to_domain = domain + request.script_root + request.path
+    if '139.59.63.73' in request.url_root:
+        return redirect(url_to_domain)
+
 
 @app.route("/")
 def main():
