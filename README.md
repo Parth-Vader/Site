@@ -8,4 +8,4 @@ Depends : [https://orkohunter.net/depends](https://orkohunter.net/depends)
 
 Projects : [https://orkohunter.net/projects](https://orkohunter.net/projects)
 
-Read how the server is set up.
+[Read how the server is set up](https://medium.com/@OrkoHunter/sudo-start-orkohunter-net-aa2f9d5e3d5c).
