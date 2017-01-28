@@ -92,3 +92,4 @@ ENV/
 flask_session
 
 database
+*.ini
