@@ -5,6 +5,7 @@ from flask import Flask, render_template, redirect, request
 from flask_session import Session
 
 from handlers import depends as depends_handler
+from handlers import blog as blog_handler
 
 app = Flask(__name__, static_url_path='/static')
 sess = Session()
@@ -27,6 +28,12 @@ def clear_trailing():
 @app.route("/")
 def main():
     return render_template('home/index.html')
+
+
+@app.route("/blog")
+def blog():
+    data = blog_handler.main()
+    return render_template('home/blog.html', data=data)
 
 
 @app.route("/abwid")
