@@ -37,8 +37,9 @@
 }
 
 #archives a {
+	font-size: 25px;
 	color: #697E67;
-
+	font-family: "Arial, Helvetica, sans-serif"
 }
 
 
@@ -78,21 +79,18 @@ i {
 }
 
 #month #tags {
-	margin-left: 5%;
 	margin-top: 1%;
 }
 
 #month a {
-	margin-left: 5%;
 	font-weight: 400;
+	margin-top: 10%;
 }
 
 #bottom a {
 	color: black;
 	margin-left: 0%;
 }
-
-
 
 h5 {
 	margin-top: 5%;
