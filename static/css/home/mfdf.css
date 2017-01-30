@@ -1,0 +1,68 @@
+.head {
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 6px;
+	font-size: 46px;
+	font-weight: 200;
+	margin-top: 60px;
+}
+
+.tab {
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 40px;
+	font-weight: 300;
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.highlighted-tab{
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 40px;
+	font-weight: 400;
+	font-size: 14px;
+	color: rgba(56, 56, 56);
+}
+
+.divider {
+	margin-top: 30px;
+}
+
+.doc {
+	margin-top: 50px;
+	line-height: 20px;
+}
+
+a {
+	color: black;
+
+}
+
+i {
+	margin-left: 20px;
+	text-align: center;
+}
+
+.p-name {
+	font-size: 24px;
+	letter-spacing: 0.5px;
+	padding-top: 80px;
+}
+
+.p-desc {
+	font-size: 16px;
+	letter-spacing: 0.5px;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.p-links {
+	font-size: 14px;
+	font-family: "Roboto";
+	font-stretch: semi-expanded;
+	letter-spacing: 0.5px;
+}
+
+pre {
+	font-size: 14px;
+}

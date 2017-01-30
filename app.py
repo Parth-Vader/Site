@@ -6,6 +6,7 @@ from flask_session import Session
 
 from handlers import depends as depends_handler
 from handlers import blog as blog_handler
+from handlers import mfdf as mfdf_handler
 
 app = Flask(__name__, static_url_path='/static')
 sess = Session()
@@ -28,6 +29,12 @@ def clear_trailing():
 @app.route("/")
 def main():
     return render_template('home/index.html')
+
+
+@app.route("/mfdf")
+def mfdf():
+    data = mfdf_handler.main()
+    return render_template('home/mfdf.html', data=data)
 
 
 @app.route("/blog")
