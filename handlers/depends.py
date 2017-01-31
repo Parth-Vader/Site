@@ -1,11 +1,13 @@
 import json
+import os
 from handlers import depends_engine
 
+DATABASE_DIR = os.path.expanduser('~') + '/orkohunter.net/database/'
 
 def index():
-    with open('database/depends/packages.json', 'r') as f:
+    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
         packages = json.loads(f.read())
-    with open('database/depends/last_package', 'r') as f:
+    with open(DATABASE_DIR + 'depends/last_package', 'r') as f:
         last_package = f.read()
 
     data = {
@@ -17,7 +19,7 @@ def index():
 
 
 def package_view(package):
-    with open('database/depends/packages.json', 'r') as f:
+    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
         packages = json.loads(f.read())
 
     analysis_exists = False
@@ -35,9 +37,9 @@ def package_view(package):
             p["file_type"] = analysis["info"]["file_type"]
             p["source"] = analysis["info"]["source"]
             packages[package] = p
-            with open('database/depends/packages.json', 'w') as f:
+            with open(DATABASE_DIR + 'depends/packages.json', 'w') as f:
                 f.write(json.dumps(packages))
-            with open('database/depends/last_package', 'w') as f:
+            with open(DATABASE_DIR + 'depends/last_package', 'w') as f:
                 f.write(package)
             analysis_exists = True
 
@@ -53,17 +55,17 @@ def package_view(package):
 
 
 def package_refresh(package):
-    with open('database/depends/packages.json', 'r') as f:
+    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
         packages = json.loads(f.read())
 
     del packages[package]
 
-    with open('database/depends/packages.json', 'w') as f:
+    with open(DATABASE_DIR + 'depends/packages.json', 'w') as f:
         f.write(json.dumps(packages))
 
 
 def list():
-    with open('database/depends/packages.json', 'r') as f:
+    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
         packages = json.loads(f.read())
 
     data = {
