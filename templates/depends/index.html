@@ -4,7 +4,12 @@
 <head>
     <title> Analyze dependencies of a python package </title>
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery-2.1.4.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/odometer.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/odometer-theme-default.css')}}" />
     <script type="text/javascript">
+    setTimeout(function(){
+      $('.odometer').html({{ data.no_of_packages }});
+    }, 1000);
         $(document).ready(function(){
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('#bar').hide();
@@ -63,7 +68,7 @@
         </div>
         <div style="margin-top: 350px;">
             <div class="col s9 offset-s1">
-                <p><a style="color: black" href="/depends/list">{{ data.no_of_packages }} packages scanned so far.</a><br>Last package scanned was <a href="/depends/{{ data.last_package }}">{{ data.last_package }}</a></p>
+                <p><a style="color: black" href="/depends/list"><span class="odometer">0</span> packages scanned so far.</a><br>Last scanned package was <a href="/depends/{{ data.last_package }}">{{ data.last_package }}</a></p>
             </div>
             <div class="col s2" >
                 <a href="#infomodal" class="btn-floating z-depth-0 modal-trigger white"><i class="material-icons tiny" style=" color: black;">help_outline</i></a>
