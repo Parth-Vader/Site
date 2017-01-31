@@ -60,3 +60,14 @@ def package_refresh(package):
 
     with open('database/depends/packages.json', 'w') as f:
         f.write(json.dumps(packages))
+
+
+def list():
+    with open('database/depends/packages.json', 'r') as f:
+        packages = json.loads(f.read())
+
+    data = {
+        'packages': sorted(packages.keys()),
+        }
+
+    return data

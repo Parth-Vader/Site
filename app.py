@@ -85,6 +85,12 @@ def depends_package(package):
     return render_template('depends/package.html', data=data, analysis_exists=analysis_exists)
 
 
+@app.route("/depends/list")
+def depends_list():
+    data = depends_handler.list()
+    return render_template('depends/list.html', data=data)
+
+
 @app.route("/depends/<package>/refresh")
 def depends_package_refresh(package):
     depends_handler.package_refresh(package)
