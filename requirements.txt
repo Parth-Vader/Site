@@ -2,3 +2,4 @@ Flask-Session
 flask
 wget
 feedparser
+requests
