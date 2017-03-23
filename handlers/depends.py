@@ -67,11 +67,11 @@ def package_refresh(package):
 
 
 def list():
-    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
-        packages = json.loads(f.read())
+    db = records.Database("sqlite:////home/hunter/orkohunter.net/database/depends/packages.db")
+    rows = db.query('SELECT * FROM packages ORDER BY package')
 
     data = {
-        'packages': sorted(packages.keys()),
+        'packages': [r.package.strip('"') for r in rows.all()],
     }
 
     return data
