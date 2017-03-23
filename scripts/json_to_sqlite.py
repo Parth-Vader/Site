@@ -1,6 +1,8 @@
 import json
 import records
 
+db = records.Database("sqlite:////home/hunter/orkohunter.net/database/depends/packages.db")
+
 r = json.loads(open('/home/hunter/orkohunter.net/database/depends/packages.json', 'r').read())
 
 query = "INSERT INTO packages (package, builtins, nonbuiltins, file_type, source, version) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')"
