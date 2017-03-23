@@ -10,14 +10,16 @@
     <div class="container">
         <div class="row">
             <div class="col s12 head">Himanshu Mishra</div>
-            <div class="col s1 offset-s1 highlighted-tab" style="margin-left:120px;"><a href="/">About</a></div>
-            <div class="col s2 tab"><a style="color: rgba(0, 0, 0, 0.6);" href="/projects">Software</a></div>
-            <div class="col s2 tab highlighted-tab"><a style="color: rgba(0, 0, 0, 0.6);" href="/blog">Blog</a></div>
-            <div class="col s2 tab"><a style="color: rgba(0, 0, 0, 0.6);" href="/mfdf">Fortunes</a></div>
-            <div class="col s2 tab"><a style="color: rgba(0, 0, 0, 0.6);" href="/contact">Contact</a></div>
-            <div class="col s10 offset-s1 divider"></div>
+            <div id="tabs" style="text-align: center;">
+                <a class="tab" href="/">About</a>
+                <a class="tab" href="/projects">Software</a>
+                <a class="tab" href="/values">Values</a>
+                <a class="highlighted-tab" href="/blog">Blog</a>
+                <a class="tab" href="/mfdf">Fortunes</a>
+                <a class="tab" href="/contact">Contact</a>
+                <div class="divider col s10 offset-s1"></div>
+            </div>
         </div>
-
         <div id="archives" class="row">
             <div class="col s11 offset-s1">
                 {% for y in data.feed %}
