@@ -21,15 +21,15 @@ def index():
 
 
 def package_view(package):
-    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
-        packages = json.loads(f.read())
+    db = records.Database("sqlite:////home/hunter/orkohunter.net/database/depends/packages.db")
+    rows = db.query("SELECT * FROM packages WHERE package='{}'".format(package))
 
     analysis_exists = False
     data = {'package_name': package}
     try:
-        if package in packages:
+        if len(rows.all()) == 1:
             analysis_exists = True
-            p = packages[package]
+            p = rows[0]
         else:
             analysis = depends_engine.main(package)
             p = {}
@@ -38,9 +38,11 @@ def package_view(package):
             p["version"] = analysis["info"]["version"]
             p["file_type"] = analysis["info"]["file_type"]
             p["source"] = analysis["info"]["source"]
-            packages[package] = p
-            with open(DATABASE_DIR + 'depends/packages.json', 'w') as f:
-                f.write(json.dumps(packages))
+
+            query = "INSERT INTO packages (package, builtins, nonbuiltins, file_type, source, version) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')"
+            query_formatted = query.format(json.dumps(package), json.dumps(p['builtins']), json.dumps(p['nonbuiltins']), json.dumps(p['file_type']), json.dumps(p['source']), json.dumps(p['version']))
+            query_formatted = query_formatted.replace("\"", "")
+            db.query(query_formatted)
             with open(DATABASE_DIR + 'depends/last_package', 'w') as f:
                 f.write(package)
             analysis_exists = True
@@ -57,13 +59,8 @@ def package_view(package):
 
 
 def package_refresh(package):
-    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
-        packages = json.loads(f.read())
-
-    del packages[package]
-
-    with open(DATABASE_DIR + 'depends/packages.json', 'w') as f:
-        f.write(json.dumps(packages))
+    db = records.Database("sqlite:////home/hunter/orkohunter.net/database/depends/packages.db")
+    db.query("DELETE FROM packages WHERE package='{}'".format(package))
 
 
 def list():
@@ -71,7 +68,7 @@ def list():
     rows = db.query('SELECT * FROM packages ORDER BY package')
 
     data = {
-        'packages': [r.package.strip('"') for r in rows.all()],
+        'packages': [r.package for r in rows.all()],
     }
 
     return data
