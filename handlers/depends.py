@@ -1,19 +1,21 @@
 import json
 import os
+import records
 from handlers import depends_engine
 
 DATABASE_DIR = os.path.expanduser('~') + '/orkohunter.net/database/'
 
+
 def index():
-    with open(DATABASE_DIR + 'depends/packages.json', 'r') as f:
-        packages = json.loads(f.read())
+    db = records.Database("sqlite:////home/hunter/orkohunter.net/database/depends/packages.db")
+    rows = db.query('SELECT * FROM packages')
     with open(DATABASE_DIR + 'depends/last_package', 'r') as f:
         last_package = f.read()
 
     data = {
-        'no_of_packages': len(packages),
+        'no_of_packages': len(rows.all()),
         'last_package': last_package,
-        }
+    }
 
     return data
 
@@ -70,6 +72,6 @@ def list():
 
     data = {
         'packages': sorted(packages.keys()),
-        }
+    }
 
     return data
