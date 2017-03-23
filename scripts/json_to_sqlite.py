@@ -23,4 +23,5 @@ for package_name in r:
         source = source.replace(char, "")
         version = version.replace(char, "")
     query_formatted = query.format(json.dumps(package_name), json.dumps(builtins), json.dumps(nonbuiltins), json.dumps(file_type), json.dumps(source), json.dumps(version))
-    db.query(query_formatted)
+    print(query_formatted.replace("\"", ""))
+    db.query(query_formatted.replace("\"", ""))
