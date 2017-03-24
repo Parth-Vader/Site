@@ -26,16 +26,16 @@ with open('/home/hunter/orkohunter.net/database/blog/last_id', 'r') as f:
 new_post = atom['entries'][0]
 
 with open('/home/hunter/orkohunter.net/database/blog/last_id', 'w') as f:
-    f.write(last_id)
+    f.write(new_post['id'])
 
 is_old_post = last_id == new_post['id']
-is_not_a_reply = 'tag' in new_post  # Responses don't have tags
+is_not_a_reply = 'tags' in new_post  # Responses don't have tags
 
 if not is_old_post and is_not_a_reply:
     print("I'm in")
     print(new_post['title'])
     last_id = new_post['id']
-    
+
     with open('/home/hunter/orkohunter.net/database/blog/feed.json', 'r') as f:
         feed = json.loads(f.read())
 
