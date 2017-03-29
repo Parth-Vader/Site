@@ -43,6 +43,16 @@ def blog():
     return render_template('home/blog.html', data=data)
 
 
+@app.route("/values")
+def values():
+    return render_template('home/values.html')
+
+
+@app.route("/values/inspirations")
+def values_inspirations():
+    return render_template('home/inspirations.html')
+
+
 @app.route("/abwid")
 def abwid():
     return render_template('home/abwid.html')
