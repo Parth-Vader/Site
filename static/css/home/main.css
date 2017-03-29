@@ -1,42 +1,38 @@
 .head {
 	text-transform: uppercase;
 	text-align: center;
-	letter-spacing: 6px;
-	font-size: 50px;
+	letter-spacing: 0.2em;
+	font-size: 3em;
 	font-weight: 200;
-	margin-top: 60px;
+	margin-top: 1.5em;
 }
 
 .tab {
 	text-transform: uppercase;
 	text-align: center;
-	margin-top: 40px;
-	font-size: 12px;
+	margin-top: 2em;
+	font-size: 0.8em;
 	color: rgba(0, 0, 0, 0.6);
 }
 
 .highlighted-tab{
 	text-transform: uppercase;
 	text-align: center;
-	margin-top: 40px;
-	font-size: 12px;
+	margin-top: 2em;
+	font-size: 0.8em;
 	color: rgba(56, 56, 56);
 }
 
 #tabs a {
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-.divider {
-	margin-top: 40px;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 
 .doc {
-	margin-top: 50px;
+	margin-top: 1em;
 	font-weight: 300;
-	font-size: 16px;
-	line-height: 30px;
+	font-size: 1.1em;
+	line-height: 1.8em;
 }
 
 a {
@@ -45,12 +41,12 @@ a {
 }
 
 i {
-	margin-left: 20px;
+	margin-left: 1.2em;
 	text-align: center;
 }
 
 .p-name {
-	font-size: 24px;
+	font-size: 1.5em;
 	letter-spacing: 0.5px;
 	padding-top: 80px;
 }
