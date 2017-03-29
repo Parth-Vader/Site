@@ -26,6 +26,8 @@
 
 #tabs {
 	text-align: justify;
+	padding-top: 1em;
+	padding-bottom: 0.2em;
 }
 
 #tabs:after {
