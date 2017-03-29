@@ -63,3 +63,11 @@ i {
 	font-stretch: semi-expanded;
 	letter-spacing: 0.5px;
 }
+
+.card {
+	height: 16em;
+}
+
+.org {
+	height: 24em;
+}
