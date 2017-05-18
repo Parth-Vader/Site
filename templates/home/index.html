@@ -2,58 +2,62 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Himanshu Mishra | OrkoHunter</title>
+  <meta charset="utf-8" />
+  <meta name="title" content="Himanshu Mishra | OrkoHunter">
+  <meta name="description" content="Personal website of Himanshu Mishra (OrkoHunter)">
+  <meta name="keywords" content="Himanshu, Mishra, Himanshu Mishra, OrkoHunter, GitHub, PEP8Speaks, Keep">
+
+  <meta name="og:title" content="Himanshu Mishra | OrkoHunter">
+  <meta name="og:url" content="https://orkohunter.net">
+  <meta name="og:image" content="https://avatars2.githubusercontent.com/u/8065913?v=3&s=460">
+  <meta name="og:description" content="Personal Website of Himanshu Mishra">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv='Expires' content='0'>
+  <meta http-equiv='Pragma' content='no-cache'>
+  <meta http-equiv='Cache-Control' content='no-cache'>
+  <meta http-equiv='imagetoolbar' content='no'>
+
+  <title>Himanshu Mishra | OrkoHunter</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col s12 head">Himanshu Mishra</div>
-            <div id="tabs" class="col s10 offset-s1">
-                <a class="highlighted-tab" href="/">About</a>
-                <a class="tab" href="/projects">Software</a>
-                <a class="tab" href="/values">Values</a>
-                <a class="tab" href="/blog">Blog</a>
-                <a class="tab" href="/mfdf">Fortunes</a>
-                <a class="tab" href="/contact">Contact</a>
-            </div>
-            <div class="divider col s10 offset-s1"></div>
-        </div>
+	<div class="top">
+    <div class="head">Himanshu Mishra</div>
+    <div class="tabs">
+      <a class="tab highlighted" href="/">About</a>
+      <a class="tab" href="/projects">Software</a>
+      <a class="tab" href="/values">Values</a>
+      <a class="tab" href="/blog">Blog</a>
+      <a class="tab" href="/mfdf">Fortunes</a>
+      <a class="tab" href="/contact">Contact</a>
+    </div>
+    <div class="divider"></div>
 
-        <div class="row">
-            <div class="col s10 offset-s1 doc">
-                I am a third year undergraduate student majoring in Mathematics and Computing at <a target="_blank" href="http://www.iitkgp.ac.in/">IIT Kharagpur, India.</a><br>
-                <a href="/values">I am a software enthusiast</a>. I have also been associated with Google Summer of Code one way or another since first year of college.<br><br>
-                I also write once in a while on <a href="/blog">Medium</a>.
-                <div style="margin-top: 28%" class="row">
-                    <div class="col s6">
-                        <a style="color: brown" target="_blank" href="/keep">Keep - Your shell command keeper   </a>
-                    </div>
-                    <div class="col s6" style="text-align: right;">
-                        <a style="color: brown" href="/depends">Analyze dependencies of a Python package</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <p>I am a third year undergraduate student majoring in Mathematics and Computing at <a target="_blank" href="http://www.iitkgp.ac.in/">IIT Kharagpur, India.</a></p>
+    <p><a href="/values">I am a software enthusiast</a>. I have also been associated with Google Summer of Code one way or another since first year of college.</p><br>
+    <p>I also write once in a while on <a href="/blog">Medium</a>.</p>
 
-        <div class="row">
-            <div class="col s10 offset-s1 divider"></div>
-        </div>
-
-        <div class="row">
-            <div class="col s8 offset-s5">
-                <a href="https://github.com/OrkoHunter" target="_blank"><i class="fa fa-github fa-1x"></i></a>
-                <a href="https://twitter.com/OrkoHunter" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
-                <a href="https://www.facebook.com/Mr.HimanshuMishra" target="_blank"><i class="fa fa-facebook fa-1x"></i></a>
-                <a href="https://medium.com/@orkohunter" target="_blank"><i class="fa fa-medium fa-1x"></i></a>
-                <a href="mailto:himanshumishra@iitkgp.ac.in" target="_blank"><i class="fa fa-envelope-o fa-1x"></i></a>
-            </div>
-        </div>
+  </div>
+  <div class="bottom">
+    <div class="projects__on__display">
+      <a style="color: brown" target="_blank" href="/keep">Keep - Your shell command keeper</a>
+      <a style="color: brown" href="/depends">Analyze dependencies of a Python package</a>
     </div>
 
+    <div class="divider"></div>
+
+    <div class="social">
+      <a href="https://github.com/OrkoHunter" target="_blank"><i class="fa fa-github fa-1x"></i></a>
+      <a href="https://twitter.com/OrkoHunter" target="_blank"><i class="fa fa-twitter fa-1x"></i></a>
+      <a href="https://www.facebook.com/Mr.HimanshuMishra" target="_blank"><i class="fa fa-facebook fa-1x"></i></a>
+      <a href="https://medium.com/@orkohunter" target="_blank"><i class="fa fa-medium fa-1x"></i></a>
+      <a href="mailto:himanshumishra@iitkgp.ac.in" target="_blank"><i class="fa fa-envelope-o fa-1x"></i></a>
+    </div>
+  </div>
 </body>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css')}}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home/main.css')}}">
 </html>
