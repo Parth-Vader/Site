@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import codecs
 import json
 import feedparser
 
@@ -22,12 +23,12 @@ months_map = {
 feed_url = "https://medium.com/feed/@orkohunter/"
 atom = feedparser.parse(feed_url)
 
-with open('/home/hunter/orkohunter.net/database/blog/last_id', 'r') as f:
+with codecs.open('/home/hunter/orkohunter.net/database/blog/last_id', 'r', 'utf-8') as f:
     last_id = f.read().strip('\n')
 
 new_post = atom['entries'][0]
 
-with open('/home/hunter/orkohunter.net/database/blog/last_id', 'w') as f:
+with codecs.open('/home/hunter/orkohunter.net/database/blog/last_id', 'w', 'utf-8') as f:
     f.write(new_post['id'])
 
 is_old_post = last_id == new_post['id']
@@ -38,7 +39,7 @@ if not is_old_post and is_not_a_reply:
     print(new_post['title'])
     last_id = new_post['id']
 
-    with open('/home/hunter/orkohunter.net/database/blog/feed.json', 'r') as f:
+    with codecs.open('/home/hunter/orkohunter.net/database/blog/feed.json', 'r', 'utf-8') as f:
         feed = json.loads(f.read())
 
     new_post_dict = {}
@@ -74,5 +75,5 @@ if not is_old_post and is_not_a_reply:
         new_year['content'].insert(0, new_month)
         feed['feed'].insert(new_year)
 
-    with open('/home/hunter/orkohunter.net/database/blog/feed.json', 'w') as f:
+    with codecs.open('/home/hunter/orkohunter.net/database/blog/feed.json', 'w', 'utf-8') as f:
         f.write(json.dumps(feed))

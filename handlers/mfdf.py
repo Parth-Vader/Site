@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import codecs
+
 def main():
     data = {}
-    with open("database/mfdf/fortunes", "r") as f:
+    with codecs.open("database/mfdf/fortunes", "r", "utf-8") as f:
         data["fortunes"] = f.read()
 
     data["fortunes"] = data["fortunes"].replace("\n", "<br>")

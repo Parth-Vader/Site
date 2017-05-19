@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import codecs
 import json
 import os
 import records
@@ -11,7 +12,7 @@ DATABASE_DIR = os.path.expanduser('~') + '/orkohunter.net/database/'
 def index():
     db = records.Database("sqlite:////home/hunter/orkohunter.net/database/depends/packages.db")
     rows = db.query('SELECT * FROM packages')
-    with open(DATABASE_DIR + 'depends/last_package', 'r') as f:
+    with codecs.open(DATABASE_DIR + 'depends/last_package', 'r', 'utf-8') as f:
         last_package = f.read()
 
     data = {
@@ -45,7 +46,7 @@ def package_view(package):
             query_formatted = query.format(json.dumps(package), json.dumps(p['builtins']), json.dumps(p['nonbuiltins']), json.dumps(p['file_type']), json.dumps(p['source']), json.dumps(p['version']))
             query_formatted = query_formatted.replace("\"", "")
             db.query(query_formatted)
-            with open(DATABASE_DIR + 'depends/last_package', 'w') as f:
+            with codecs.open(DATABASE_DIR + 'depends/last_package', 'w', 'utf-8') as f:
                 f.write(package)
             analysis_exists = True
 
