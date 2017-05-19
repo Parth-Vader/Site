@@ -1,0 +1,40 @@
+@import url('main.css');
+
+.personal__projects, .org__projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.project {
+    flex: 1 1 50%;
+    min-height: 16em;
+    max-width: 24em;
+}
+
+
+.org {
+    flex: 1 1 50%;
+    min-height: 21em;
+    max-width: 24em;
+}
+
+.p-name {
+    font-size: 1.5em;
+    letter-spacing: 0.5px;
+    padding-top: 2em;
+}
+
+.p-desc {
+    font-family: "Roboto-Regular";
+    font-size: 1em;
+    letter-spacing:0.5px;
+    color:rgba(0,0,0,0.5);
+}
+
+.p-links {
+    font-size:14px;
+    font-family:"Roboto-Light";
+    font-stretch:semi-expanded;
+    letter-spacing:0.5px;
+}
