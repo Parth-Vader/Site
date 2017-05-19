@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def main():
     data = {}
     with open("database/mfdf/fortunes", "r") as f:
