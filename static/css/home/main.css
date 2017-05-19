@@ -1,11 +1,22 @@
 @font-face {
-  font-family: "Roboto";
+  font-family: "Roboto-Thin";
   src: url("../../font/roboto/Roboto-Thin.ttf")  format('truetype');
 }
 
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../../font/roboto/Roboto-Light.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../../font/roboto/Roboto-Regular.ttf")  format('truetype');
+}
+
+
 html {
     line-height: 1.5;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto-Light", sans-serif;
     font-weight: normal;
 }
 
@@ -16,7 +27,6 @@ body {
     margin-right: auto;
     margin-left: auto;
     margin-top: auto;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,6 +49,7 @@ body {
     letter-spacing: 6px;
     font-size: 50px;
     font-weight: 200;
+    font-family: "Roboto-Thin"
 }
 
 .tabs {
@@ -47,6 +58,18 @@ body {
     flex-wrap: wrap;
     align-items: center;
     font-weight: normal;
+    font-family: "Roboto-Regular"
+}
+
+@media screen and (max-width: 760px) {
+    .tabs {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+        font-weight: normal;
+        font-family: "Roboto-Regular"
+    }
 }
 
 .tab {
@@ -66,6 +89,7 @@ p {
     line-height: 1.8em;
     margin: 0;
     padding: 0;
+    font-family: "Roboto-Light";
 }
 
 .bottom {
@@ -77,6 +101,11 @@ p {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1em;
+    font-family: "Roboto-Regular"
+}
+
+.bottom .projects__on__display a {
+    color: brown;
 }
 
 .social {
